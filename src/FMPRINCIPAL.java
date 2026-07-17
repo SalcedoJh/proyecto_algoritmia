@@ -8,6 +8,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import javax.swing.JTextField;
 
 public class FMPRINCIPAL extends JFrame {
 
@@ -26,6 +29,8 @@ public class FMPRINCIPAL extends JFrame {
 	private JMenuItem mntmNewMenuItem_5;
 	private JMenuItem mntmNewMenuItem_6;
 	private JMenuItem mntmNewMenuItem_7;
+	private JLabel lblNewLabel;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -91,6 +96,16 @@ public class FMPRINCIPAL extends JFrame {
 		
 		mntmNewMenuItem_7 = new JMenuItem("Acerca de Tienda");
 		mnNewMenu_4.add(mntmNewMenuItem_7);
+		getContentPane().setLayout(null);
+		
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(40, 54, 46, 14);
+		getContentPane().add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setBounds(98, 51, 86, 20);
+		getContentPane().add(textField);
+		textField.setColumns(10);
 
 	}
 }
