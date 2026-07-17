@@ -99,11 +99,11 @@ public class FMPRINCIPAL extends JFrame {
 		getContentPane().setLayout(null);
 		
 		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(40, 54, 46, 14);
+		lblNewLabel.setBounds(31, 25, 46, 14);
 		getContentPane().add(lblNewLabel);
 		
 		textField = new JTextField();
-		textField.setBounds(98, 51, 86, 20);
+		textField.setBounds(87, 22, 86, 20);
 		getContentPane().add(textField);
 		textField.setColumns(10);
 
