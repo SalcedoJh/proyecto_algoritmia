@@ -16,21 +16,19 @@ public class FMPRINCIPAL extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JMenuBar menuBar;
-	private JMenu mnNewMenu;
-	private JMenu mnNewMenu_1;
-	private JMenu mnNewMenu_2;
-	private JMenu mnNewMenu_3;
-	private JMenu mnNewMenu_4;
-	private JMenuItem mntmNewMenuItem;
-	private JMenuItem mntmNewMenuItem_1;
-	private JMenuItem mntmNewMenuItem_2;
-	private JMenuItem mntmNewMenuItem_3;
-	private JMenuItem mntmNewMenuItem_4;
-	private JMenuItem mntmNewMenuItem_5;
-	private JMenuItem mntmNewMenuItem_6;
-	private JMenuItem mntmNewMenuItem_7;
-	private JLabel lblNewLabel;
-	private JTextField textField;
+	private JMenu mnArchivo;
+	private JMenu mnMantenimiento;
+	private JMenu mnVentas;
+	private JMenu mnConfiguracion;
+	private JMenu mnAyuda;
+	private JMenuItem mntmSalir;
+	private JMenuItem mntmConsultar;
+	private JMenuItem mntmModificar;
+	private JMenuItem mntmListar;
+	private JMenuItem mntmVender;
+	private JMenuItem mntmDescuentos;
+	private JMenuItem mntmObsequios;
+	private JMenuItem mntmAcerca;
 
 	/**
 	 * Launch the application.
@@ -52,60 +50,52 @@ public class FMPRINCIPAL extends JFrame {
 	 * Create the frame.
 	 */
 	public FMPRINCIPAL() {
+		setTitle("Tienda 1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		mnNewMenu = new JMenu("Archivo");
-		menuBar.add(mnNewMenu);
+		mnArchivo = new JMenu("Archivo");
+		menuBar.add(mnArchivo);
 		
-		mntmNewMenuItem = new JMenuItem("Salir");
-		mnNewMenu.add(mntmNewMenuItem);
+		mntmSalir = new JMenuItem("Salir");
+		mnArchivo.add(mntmSalir);
 		
-		mnNewMenu_1 = new JMenu("Mantinimiento");
-		menuBar.add(mnNewMenu_1);
+		mnMantenimiento = new JMenu("Mantinimiento");
+		menuBar.add(mnMantenimiento);
 		
-		mntmNewMenuItem_1 = new JMenuItem("Consultar Celular");
-		mnNewMenu_1.add(mntmNewMenuItem_1);
+		mntmConsultar = new JMenuItem("Consultar Celular");
+		mnMantenimiento.add(mntmConsultar);
 		
-		mntmNewMenuItem_2 = new JMenuItem("Modificar Celular");
-		mnNewMenu_1.add(mntmNewMenuItem_2);
+		mntmModificar = new JMenuItem("Modificar Celular");
+		mnMantenimiento.add(mntmModificar);
 		
-		mntmNewMenuItem_3 = new JMenuItem("Listar Celular");
-		mnNewMenu_1.add(mntmNewMenuItem_3);
+		mntmListar = new JMenuItem("Listar Celular");
+		mnMantenimiento.add(mntmListar);
 		
-		mnNewMenu_2 = new JMenu("Ventas");
-		menuBar.add(mnNewMenu_2);
+		mnVentas = new JMenu("Ventas");
+		menuBar.add(mnVentas);
 		
-		mntmNewMenuItem_4 = new JMenuItem("Vender");
-		mnNewMenu_2.add(mntmNewMenuItem_4);
+		mntmVender = new JMenuItem("Vender");
+		mnVentas.add(mntmVender);
 		
-		mnNewMenu_3 = new JMenu("Configuracion");
-		menuBar.add(mnNewMenu_3);
+		mnConfiguracion = new JMenu("Configuracion");
+		menuBar.add(mnConfiguracion);
 		
-		mntmNewMenuItem_5 = new JMenuItem("Configurar descuentos");
-		mnNewMenu_3.add(mntmNewMenuItem_5);
+		mntmDescuentos = new JMenuItem("Configurar descuentos");
+		mnConfiguracion.add(mntmDescuentos);
 		
-		mntmNewMenuItem_6 = new JMenuItem("Configurar obsequios");
-		mnNewMenu_3.add(mntmNewMenuItem_6);
+		mntmObsequios = new JMenuItem("Configurar obsequios");
+		mnConfiguracion.add(mntmObsequios);
 		
-		mnNewMenu_4 = new JMenu("Ayuda");
-		menuBar.add(mnNewMenu_4);
+		mnAyuda = new JMenu("Ayuda");
+		menuBar.add(mnAyuda);
 		
-		mntmNewMenuItem_7 = new JMenuItem("Acerca de Tienda");
-		mnNewMenu_4.add(mntmNewMenuItem_7);
+		mntmAcerca = new JMenuItem("Acerca de Tienda");
+		mnAyuda.add(mntmAcerca);
 		getContentPane().setLayout(null);
-		
-		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(31, 25, 46, 14);
-		getContentPane().add(lblNewLabel);
-		
-		textField = new JTextField();
-		textField.setBounds(87, 22, 86, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
 
 	}
 }
