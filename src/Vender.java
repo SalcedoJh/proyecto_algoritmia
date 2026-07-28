@@ -13,16 +13,16 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
 
-public class FMVender extends JFrame {
+public class Vender extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JScrollPane scrollPane;
-	private JTextArea txtArea;
+	private JTextArea txtS;
 	private JLabel lblModelo;
 	private JLabel lblPrecio;
 	private JLabel lblCantidad;
-	private JComboBox comboBox;
+	private JComboBox cboModelo;
 	private JTextField txtPrecio;
 	private JTextField txtCantidad;
 	private JButton btnVender;
@@ -35,7 +35,7 @@ public class FMVender extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FMVender frame = new FMVender();
+					Vender frame = new Vender();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,7 +47,7 @@ public class FMVender extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FMVender() {
+	public Vender() {
 		setTitle("Vender");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -60,8 +60,8 @@ public class FMVender extends JFrame {
 		scrollPane.setBounds(10, 104, 414, 146);
 		contentPane.add(scrollPane);
 		
-		txtArea = new JTextArea();
-		scrollPane.setViewportView(txtArea);
+		txtS = new JTextArea();
+		scrollPane.setViewportView(txtS);
 		
 		lblModelo = new JLabel("Modelo");
 		lblModelo.setBounds(10, 11, 46, 14);
@@ -75,8 +75,8 @@ public class FMVender extends JFrame {
 		lblCantidad.setBounds(10, 61, 46, 14);
 		contentPane.add(lblCantidad);
 		
-		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {
+		cboModelo = new JComboBox();
+		cboModelo.setModel(new DefaultComboBoxModel(new String[] {
 				Celulares.modelo0,
 				String.valueOf(Celulares.modelo1),
 				String.valueOf(Celulares.modelo2),
@@ -84,8 +84,8 @@ public class FMVender extends JFrame {
 				String.valueOf(Celulares.modelo4),
 				String.valueOf(Celulares.modelo5),
 		}));
-		comboBox.setBounds(98, 7, 154, 22);
-		contentPane.add(comboBox);
+		cboModelo.setBounds(98, 7, 154, 22);
+		contentPane.add(cboModelo);
 		
 		txtPrecio = new JTextField();
 		txtPrecio.setEditable(false);
@@ -106,9 +106,9 @@ public class FMVender extends JFrame {
 		btnCerrar.setBounds(335, 32, 89, 23);
 		contentPane.add(btnCerrar);
 		
-		comboBox.addActionListener(new ActionListener() {
+		cboModelo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String seleccion = comboBox.getSelectedItem().toString();
+				String seleccion = cboModelo.getSelectedItem().toString();
 				
 				if (seleccion == Celulares.modelo0) {
 					txtPrecio.setText(Celulares.precio0+"");
@@ -132,14 +132,14 @@ public class FMVender extends JFrame {
 		});
 		
 		// salida de boleta temporal
-		txtArea.setText("BOLETA DE VENTA\n\n");
-		txtArea.append("Modelo\t\t: " + Celulares.modelo0);
-		txtArea.append("\nPrecio\t\t: " + Celulares.precio0);
-		txtArea.append("\nCantidad\t\t: 3");
-		txtArea.append("\nImporte Compra\t: $240");
-		txtArea.append("\nImporte Descuento\t: $20");
-		txtArea.append("\nImporte a Pagar\t: $220");
-		txtArea.append("\nObsequio\t\t: Banco de carga");
+		txtS.setText("BOLETA DE VENTA\n\n");
+		txtS.append("Modelo\t\t: " + Celulares.modelo0);
+		txtS.append("\nPrecio\t\t: " + Celulares.precio0);
+		txtS.append("\nCantidad\t\t: 3");
+		txtS.append("\nImporte Compra\t: $240");
+		txtS.append("\nImporte Descuento\t: $20");
+		txtS.append("\nImporte a Pagar\t: $220");
+		txtS.append("\nObsequio\t\t: Banco de carga");
 
 	}
 }

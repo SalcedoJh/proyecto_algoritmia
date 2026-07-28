@@ -10,11 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JSlider;
 
-public class FMVentasAvance extends JFrame {
+public class VentasAvance extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JLabel lblNumVenta;
+	private JLabel lblVentas;
 	private JLabel lblImporte;
 	private JLabel lblPorcentaje;
 	private JButton btnAceptar;
@@ -26,7 +26,7 @@ public class FMVentasAvance extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FMVentasAvance frame = new FMVentasAvance();
+					VentasAvance frame = new VentasAvance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +38,7 @@ public class FMVentasAvance extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FMVentasAvance() {
+	public VentasAvance() {
 		setType(Type.UTILITY);
 		setTitle("Avance de Ventas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,9 +48,9 @@ public class FMVentasAvance extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		lblNumVenta = new JLabel("Venta Nro. 5");
-		lblNumVenta.setBounds(44, 11, 104, 14);
-		contentPane.add(lblNumVenta);
+		lblVentas = new JLabel("Venta Nro. 5");
+		lblVentas.setBounds(44, 11, 104, 14);
+		contentPane.add(lblVentas);
 		
 		lblImporte = new JLabel("Importe total general acumulado: $1240");
 		lblImporte.setBounds(44, 36, 198, 14);

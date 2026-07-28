@@ -7,12 +7,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 
-public class FMListadoDeCelulares extends JFrame {
+public class ListadoDeCelulares extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JScrollPane scrollPane;
-	private JTextArea textArea;
+	private JTextArea txtS;
 	private JButton btnCerrar;
 	private JButton btnListar;
 
@@ -23,7 +23,7 @@ public class FMListadoDeCelulares extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FMListadoDeCelulares frame = new FMListadoDeCelulares();
+					ListadoDeCelulares frame = new ListadoDeCelulares();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class FMListadoDeCelulares extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FMListadoDeCelulares() {
+	public ListadoDeCelulares() {
 		setTitle("Listado de Celulares");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 378);
@@ -48,8 +48,8 @@ public class FMListadoDeCelulares extends JFrame {
 		scrollPane.setBounds(10, 11, 414, 280);
 		contentPane.add(scrollPane);
 		
-		textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
+		txtS = new JTextArea();
+		scrollPane.setViewportView(txtS);
 		
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.setBounds(111, 305, 89, 23);
@@ -59,12 +59,12 @@ public class FMListadoDeCelulares extends JFrame {
 		btnListar.setBounds(225, 305, 89, 23);
 		contentPane.add(btnListar);
 		
-		textArea.setText("LISTADO DE CELULARES:\n\n");
-		textArea.append(Celulares.modelo0+"\n");
-		textArea.append(Celulares.precio0+"\n");
-		textArea.append(Celulares.almacenamiento0+"\n");
-		textArea.append(Celulares.bateria0+"\n");
-		textArea.append(Celulares.camara0+"\n");
+		txtS.setText("LISTADO DE CELULARES:\n\n");
+		txtS.append(Celulares.modelo0+"\n");
+		txtS.append(Celulares.precio0+"\n");
+		txtS.append(Celulares.almacenamiento0+"\n");
+		txtS.append(Celulares.bateria0+"\n");
+		txtS.append(Celulares.camara0+"\n");
 
 	}
 }
