@@ -7,8 +7,10 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Button;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class FMAyuda extends JFrame {
+public class FrmAcerca extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -26,7 +28,7 @@ public class FMAyuda extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FMAyuda frame = new FMAyuda();
+					FrmAcerca frame = new FrmAcerca();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,9 +40,9 @@ public class FMAyuda extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FMAyuda() {
+	public FrmAcerca() {
 		setTitle("Acerca de Tienda");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -73,8 +75,17 @@ public class FMAyuda extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		btnCerrarAcer = new JButton("Cerrar");
+		btnCerrarAcer.addActionListener(this);
 		btnCerrarAcer.setBounds(175, 196, 89, 23);
 		contentPane.add(btnCerrarAcer);
 
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrarAcer) {
+			actionPerformedBtnCerrarAcer(e);
+		}
+	}
+	protected void actionPerformedBtnCerrarAcer(ActionEvent e) {
+		dispose();
 	}
 }

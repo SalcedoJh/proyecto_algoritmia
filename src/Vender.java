@@ -12,8 +12,9 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Toolkit;
 
-public class Vender extends JFrame {
+public class Vender extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -48,8 +49,9 @@ public class Vender extends JFrame {
 	 * Create the frame.
 	 */
 	public Vender() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Vender.class.getResource("/imagen/verder.png")));
 		setTitle("Vender");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -103,6 +105,7 @@ public class Vender extends JFrame {
 		contentPane.add(btnVender);
 		
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(335, 32, 89, 23);
 		contentPane.add(btnCerrar);
 		
@@ -141,5 +144,13 @@ public class Vender extends JFrame {
 		txtS.append("\nImporte a Pagar\t: $220");
 		txtS.append("\nObsequio\t\t: Banco de carga");
 
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		dispose();
 	}
 }

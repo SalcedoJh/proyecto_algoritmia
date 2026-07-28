@@ -12,6 +12,8 @@ import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Dialog.ModalExclusionType;
+import java.awt.Toolkit;
 
 public class ConsultarCelular extends JFrame implements ActionListener {
 
@@ -49,8 +51,10 @@ public class ConsultarCelular extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public ConsultarCelular() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ConsultarCelular.class.getResource("/imagen/consultar.png")));
+		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Consultar Celular");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 183);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -173,7 +177,7 @@ public class ConsultarCelular extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		dispose();
 		
 	}
 }

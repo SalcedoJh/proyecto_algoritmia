@@ -6,8 +6,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class ListadoDeCelulares extends JFrame {
+public class ListadoDeCelulares extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -36,8 +39,9 @@ public class ListadoDeCelulares extends JFrame {
 	 * Create the frame.
 	 */
 	public ListadoDeCelulares() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ListadoDeCelulares.class.getResource("/imagen/listar.png")));
 		setTitle("Listado de Celulares");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 378);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -52,6 +56,7 @@ public class ListadoDeCelulares extends JFrame {
 		scrollPane.setViewportView(txtS);
 		
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(111, 305, 89, 23);
 		contentPane.add(btnCerrar);
 		
@@ -66,5 +71,13 @@ public class ListadoDeCelulares extends JFrame {
 		txtS.append(Celulares.bateria0+"\n");
 		txtS.append(Celulares.camara0+"\n");
 
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		dispose();
 	}
 }

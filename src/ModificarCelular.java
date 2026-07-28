@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import java.awt.Window.Type;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class ModificarCelular extends JFrame implements ActionListener {
 
@@ -50,8 +51,9 @@ public class ModificarCelular extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public ModificarCelular() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ModificarCelular.class.getResource("/imagen/modificar.png")));
 		setTitle("Modificar Celular");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 183);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -180,7 +182,7 @@ public class ModificarCelular extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		dispose();
 		
 	}
 }
