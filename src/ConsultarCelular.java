@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Dialog.ModalExclusionType;
 import java.awt.Toolkit;
 
-public class ConsultarCelular extends JFrame implements ActionListener {
+public class ConsultarCelular extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -121,14 +121,12 @@ public class ConsultarCelular extends JFrame implements ActionListener {
 		cboModelo.setBounds(162, 9, 155, 22);
 		contentPane.add(cboModelo);
 		
-		
-
-	
-
+		mostrar(Celulares.precio0, Celulares.almacenamiento0, Celulares.bateria0, Celulares.camara0);
 	
 	}
  
 	public void actionPerformed(ActionEvent e) {
+		actionPerformedCboModelo(e);
 		if (e.getSource() == cboModelo) {
 			actionPerformedCboModelo(e);
 		}
@@ -153,4 +151,6 @@ public class ConsultarCelular extends JFrame implements ActionListener {
 		txtBateria.setText(String.valueOf(bat));
 		txtCamara.setText(String.valueOf(cam));
 	}
+	
+
 }
