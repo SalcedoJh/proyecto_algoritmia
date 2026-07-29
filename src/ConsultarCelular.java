@@ -111,73 +111,46 @@ public class ConsultarCelular extends JFrame implements ActionListener {
 		contentPane.add(txtCamara);
 		
 		btnCerrar = new JButton("cerrar");
-		btnCerrar.addActionListener(this);
+		btnCerrar.addActionListener(e -> dispose());
 		btnCerrar.setBounds(335, 9, 89, 23);
 		contentPane.add(btnCerrar);
 		
 		cboModelo = new JComboBox();
-		cboModelo.setModel(new DefaultComboBoxModel(new String[] {
-				Celulares.modelo0,
-				String.valueOf(Celulares.modelo1),
-				String.valueOf(Celulares.modelo2),
-				String.valueOf(Celulares.modelo3),
-				String.valueOf(Celulares.modelo4),
-				String.valueOf(Celulares.modelo5),
-		}));
+		cboModelo.addActionListener(this);
+		cboModelo.setModel(new DefaultComboBoxModel(new String[] {Celulares.modelo0, Celulares.modelo1, Celulares.modelo2, Celulares.modelo3, Celulares.modelo4, Celulares.modelo5,}));
 		cboModelo.setBounds(162, 9, 155, 22);
 		contentPane.add(cboModelo);
 		
-		cboModelo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String seleccion = cboModelo.getSelectedItem().toString();
-				
-				if (seleccion == Celulares.modelo0) {
-					txtPrecio.setText(Celulares.precio0+"");
-					txtAlmacenamiento.setText(Celulares.almacenamiento0+"");
-					txtBateria.setText(Celulares.bateria0+"");
-					txtCamara.setText(Celulares.camara0+"");
-				}
-				else if (seleccion == Celulares.modelo1) {
-					txtPrecio.setText(Celulares.precio1+"");
-					txtAlmacenamiento.setText(Celulares.almacenamiento1+"");
-					txtBateria.setText(Celulares.bateria1+"");
-					txtCamara.setText(Celulares.camara1+"");
-				}
-				else if (seleccion == Celulares.modelo2) {
-					txtPrecio.setText(Celulares.precio2+"");
-					txtAlmacenamiento.setText(Celulares.almacenamiento2+"");
-					txtBateria.setText(Celulares.bateria2+"");
-					txtCamara.setText(Celulares.camara2+"");
-				}
-				else if (seleccion == Celulares.modelo3) {
-					txtPrecio.setText(Celulares.precio3+"");
-					txtAlmacenamiento.setText(Celulares.almacenamiento3+"");
-					txtBateria.setText(Celulares.bateria3+"");
-					txtCamara.setText(Celulares.camara3+"");
-				}
-				else if (seleccion == Celulares.modelo4) {
-					txtPrecio.setText(Celulares.precio4+"");
-					txtAlmacenamiento.setText(Celulares.almacenamiento4+"");
-					txtBateria.setText(Celulares.bateria4+"");
-					txtCamara.setText(Celulares.camara4+"");
-				}
-				else if (seleccion == Celulares.modelo5) {
-					txtPrecio.setText(Celulares.precio5+"");
-					txtAlmacenamiento.setText(Celulares.almacenamiento5+"");
-					txtBateria.setText(Celulares.bateria5+"");
-					txtCamara.setText(Celulares.camara5+"");
-				}
-			}
-		});
+		
 
 	
 
 	
 	}
-
-	@Override
+ 
 	public void actionPerformed(ActionEvent e) {
-		dispose();
+		if (e.getSource() == cboModelo) {
+			actionPerformedCboModelo(e);
+		}
 		
+	}
+	protected void actionPerformedCboModelo(ActionEvent e) {
+		
+		int celularIndex = cboModelo.getSelectedIndex();
+		
+		switch (celularIndex) {
+		case 0 : mostrar(Celulares.precio0, Celulares.almacenamiento0, Celulares.bateria0, Celulares.camara0); break;
+		case 1 : mostrar(Celulares.precio1, Celulares.almacenamiento1, Celulares.bateria1, Celulares.camara1); break;
+		case 2 : mostrar(Celulares.precio2, Celulares.almacenamiento2, Celulares.bateria2, Celulares.camara2); break;
+		case 3 : mostrar(Celulares.precio3, Celulares.almacenamiento3, Celulares.bateria3, Celulares.camara3); break;
+		case 4 : mostrar(Celulares.precio4, Celulares.almacenamiento4, Celulares.bateria4, Celulares.camara4); break;
+		case 5 : mostrar(Celulares.precio5, Celulares.almacenamiento5, Celulares.bateria5, Celulares.camara5);
+		}
+	}
+	void mostrar(double pre, double almc, double bat, double cam) {
+		txtPrecio.setText(String.valueOf(pre));
+		txtAlmacenamiento.setText(String.valueOf(almc));
+		txtBateria.setText(String.valueOf(bat));
+		txtCamara.setText(String.valueOf(cam));
 	}
 }

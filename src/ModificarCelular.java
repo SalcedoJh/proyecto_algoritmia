@@ -87,25 +87,21 @@ public class ModificarCelular extends JFrame implements ActionListener {
 		contentPane.add(lblCamara);
 		
 		txtPrecio = new JTextField();
-		txtPrecio.setText("Precio");
 		txtPrecio.setColumns(10);
 		txtPrecio.setBounds(162, 37, 155, 20);
 		contentPane.add(txtPrecio);
 		
 		txtAlmacenamiento = new JTextField();
-		txtAlmacenamiento.setText("Almacenamiento");
 		txtAlmacenamiento.setColumns(10);
 		txtAlmacenamiento.setBounds(162, 62, 155, 20);
 		contentPane.add(txtAlmacenamiento);
 		
 		txtBateria = new JTextField();
-		txtBateria.setText("Bateria");
 		txtBateria.setColumns(10);
 		txtBateria.setBounds(162, 87, 155, 20);
 		contentPane.add(txtBateria);
 		
 		txtCamara = new JTextField();
-		txtCamara.setText("Camara");
 		txtCamara.setColumns(10);
 		txtCamara.setBounds(162, 112, 155, 20);
 		contentPane.add(txtCamara);
@@ -118,14 +114,7 @@ public class ModificarCelular extends JFrame implements ActionListener {
 		cboModelo = new JComboBox();
 		cboModelo.setBounds(162, 11, 155, 22);
 		contentPane.add(cboModelo);
-		cboModelo.setModel(new DefaultComboBoxModel(new String[] {
-				Celulares.modelo0,
-				String.valueOf(Celulares.modelo1),
-				String.valueOf(Celulares.modelo2),
-				String.valueOf(Celulares.modelo3),
-				String.valueOf(Celulares.modelo4),
-				String.valueOf(Celulares.modelo5),
-		}));
+		cboModelo.setModel(new DefaultComboBoxModel(new String[] {Celulares.modelo0, Celulares.modelo1, Celulares.modelo2, Celulares.modelo3, Celulares.modelo4, Celulares.modelo5,}));
 		
 		btnGuardar = new JButton("Guardar");
 		btnGuardar.setBounds(335, 38, 89, 23);
@@ -174,8 +163,6 @@ public class ModificarCelular extends JFrame implements ActionListener {
 			}
 		}
 	});
-
-
 
 		
 	}
