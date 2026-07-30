@@ -60,12 +60,12 @@ public class FrmConfigurarObsequios extends JFrame implements ActionListener {
 		
 		txt1unidad = new JTextField();
 		txt1unidad.setColumns(10);
-		txt1unidad.setBounds(155, 31, 86, 20);
+		txt1unidad.setBounds(155, 31, 115, 20);
 		contentPane.add(txt1unidad);
 		
 		txt2a5unidades = new JTextField();
 		txt2a5unidades.setColumns(10);
-		txt2a5unidades.setBounds(155, 56, 86, 20);
+		txt2a5unidades.setBounds(155, 56, 115, 20);
 		contentPane.add(txt2a5unidades);
 		
 		lbl2a5unidades = new JLabel("2 a 5 unidades");
@@ -80,10 +80,11 @@ public class FrmConfigurarObsequios extends JFrame implements ActionListener {
 		
 		txt6masunidades = new JTextField();
 		txt6masunidades.setColumns(10);
-		txt6masunidades.setBounds(155, 81, 86, 20);
+		txt6masunidades.setBounds(155, 81, 115, 20);
 		contentPane.add(txt6masunidades);
 		
 		btnAceptarObs = new JButton("Aceptar");
+		btnAceptarObs.addActionListener(this);
 		btnAceptarObs.setBounds(303, 42, 89, 23);
 		contentPane.add(btnAceptarObs);
 		
@@ -92,14 +93,27 @@ public class FrmConfigurarObsequios extends JFrame implements ActionListener {
 		btnCancelarObs.setBounds(303, 73, 89, 23);
 		contentPane.add(btnCancelarObs);
 
+		txt1unidad.setText(Celulares.obsequio1);
+		txt2a5unidades.setText(Celulares.obsequio2);
+		txt6masunidades.setText(Celulares.obsequio3);
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnAceptarObs) {
+			actionPerformedBtnAceptarObs(e);
+		}
 		if (e.getSource() == btnCancelarObs) {
 			actionPerformedBtnCancelarObs(e);
 		}
 	}
 	protected void actionPerformedBtnCancelarObs(ActionEvent e) {
+		dispose();
+	}
+	protected void actionPerformedBtnAceptarObs(ActionEvent e) {
+		Celulares.obsequio1 = txt1unidad.getText();
+		Celulares.obsequio2 = txt2a5unidades.getText();
+		Celulares.obsequio3 = txt6masunidades.getText();
 		dispose();
 	}
 }

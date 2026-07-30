@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Toolkit;
+import java.awt.Font;
 
 public class Vender extends JFrame implements ActionListener {
 
@@ -63,6 +64,7 @@ public class Vender extends JFrame implements ActionListener {
 		contentPane.add(scrollPane);
 		
 		txtS = new JTextArea();
+		txtS.setFont(new Font("MS Gothic", Font.PLAIN, 13));
 		scrollPane.setViewportView(txtS);
 		
 		lblModelo = new JLabel("Modelo");
@@ -78,14 +80,8 @@ public class Vender extends JFrame implements ActionListener {
 		contentPane.add(lblCantidad);
 		
 		cboModelo = new JComboBox();
-		cboModelo.setModel(new DefaultComboBoxModel(new String[] {
-				Celulares.modelo0,
-				String.valueOf(Celulares.modelo1),
-				String.valueOf(Celulares.modelo2),
-				String.valueOf(Celulares.modelo3),
-				String.valueOf(Celulares.modelo4),
-				String.valueOf(Celulares.modelo5),
-		}));
+		cboModelo.addActionListener(this);
+		cboModelo.setModel(new DefaultComboBoxModel(new String[] {Celulares.modelo0,Celulares.modelo1,Celulares.modelo2,Celulares.modelo3,Celulares.modelo4,Celulares.modelo5,}));
 		cboModelo.setBounds(98, 7, 154, 22);
 		contentPane.add(cboModelo);
 		
@@ -101,6 +97,7 @@ public class Vender extends JFrame implements ActionListener {
 		contentPane.add(txtCantidad);
 		
 		btnVender = new JButton("Vender");
+		btnVender.addActionListener(this);
 		btnVender.setBounds(335, 7, 89, 23);
 		contentPane.add(btnVender);
 		
@@ -109,48 +106,72 @@ public class Vender extends JFrame implements ActionListener {
 		btnCerrar.setBounds(335, 32, 89, 23);
 		contentPane.add(btnCerrar);
 		
-		cboModelo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String seleccion = cboModelo.getSelectedItem().toString();
-				
-				if (seleccion == Celulares.modelo0) {
-					txtPrecio.setText(Celulares.precio0+"");
-				}
-				else if (seleccion == Celulares.modelo1) {
-					txtPrecio.setText(Celulares.precio1+"");
-				}
-				else if (seleccion == Celulares.modelo2) {
-					txtPrecio.setText(Celulares.precio2+"");
-				}
-				else if (seleccion == Celulares.modelo3) {
-					txtPrecio.setText(Celulares.precio3+"");
-				}
-				else if (seleccion == Celulares.modelo4) {
-					txtPrecio.setText(Celulares.precio4+"");
-				}
-				else if (seleccion == Celulares.modelo5) {
-					txtPrecio.setText(Celulares.precio5+"");
-				}
-			}
-		});
-		
-		// salida de boleta temporal
-		txtS.setText("BOLETA DE VENTA\n\n");
-		txtS.append("Modelo\t\t: " + Celulares.modelo0);
-		txtS.append("\nPrecio\t\t: " + Celulares.precio0);
-		txtS.append("\nCantidad\t\t: 3");
-		txtS.append("\nImporte Compra\t: $240");
-		txtS.append("\nImporte Descuento\t: $20");
-		txtS.append("\nImporte a Pagar\t: $220");
-		txtS.append("\nObsequio\t\t: Banco de carga");
+
+		mostrarPrecio(Celulares.precio0);
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnVender) {
+			actionPerformedBtnVender(e);
+		}
+		if (e.getSource() == cboModelo) {
+			actionPerformedCboModelo(e);
+		}
 		if (e.getSource() == btnCerrar) {
 			actionPerformedBtnCerrar(e);
 		}
 	}
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
 		dispose();
+	}
+	protected void actionPerformedCboModelo(ActionEvent e) {
+		int indexModelo = cboModelo.getSelectedIndex();
+		switch (indexModelo) {
+		case 0: mostrarPrecio(Celulares.precio0); break;
+		case 1: mostrarPrecio(Celulares.precio1); break;
+		case 2: mostrarPrecio(Celulares.precio2); break;
+		case 3: mostrarPrecio(Celulares.precio3); break;
+		case 4: mostrarPrecio(Celulares.precio4); break;
+		case 5: mostrarPrecio(Celulares.precio5);
+		}
+	}
+	
+	void mostrarPrecio(double precio) {
+		txtPrecio.setText(String.valueOf(precio));
+	}
+	protected void actionPerformedBtnVender(ActionEvent e) {
+		int cantidad;
+		double precio, importDesc, importCompra, importPagar;
+		String modelo, obsequios;
+		
+		cantidad = Integer.parseInt(txtCantidad.getText());
+		precio = Double.parseDouble(txtPrecio.getText());
+		modelo = cboModelo.getSelectedItem().toString();
+		
+		importCompra = precio * cantidad;
+		
+		if (cantidad>=1 && cantidad<=5)
+			importDesc = importCompra*(Celulares.porcentaje1/100);
+		else if (cantidad>=6 && cantidad<=10) 
+			importDesc = importCompra*(Celulares.porcentaje2/100);
+		else if (cantidad>=11 && cantidad<=15) 
+			importDesc = importCompra*(Celulares.porcentaje3/100);
+		else  
+			importDesc = importCompra*(Celulares.porcentaje4/100);
+		
+		importPagar = importCompra - importDesc;
+		
+		if (cantidad == 1) obsequios = Celulares.obsequio1;
+		else if (cantidad>=2 && cantidad<=5) obsequios = Celulares.obsequio2;
+		else obsequios = Celulares.obsequio3;
+		
+		txtS.setText("BOLETA DE VENTA\n\n");
+		txtS.append(String.format("%-20s : %s","Modelo", modelo));
+		txtS.append(String.format("\n%-20s : %.2f","Precio", precio));
+		txtS.append(String.format("\n%-20s : %d","Cantidad", cantidad));
+		txtS.append(String.format("\n%-20s : %.2f","Importe Compra", importCompra));
+		txtS.append(String.format("\n%-20s : %.2f","Importe Descuento", importDesc));
+		txtS.append(String.format("\n%-20s : %.2f","Importe a Pagar", importPagar));
+		txtS.append(String.format("\n%-20s : %s","Obsequio", obsequios));
 	}
 }

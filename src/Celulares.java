@@ -41,4 +41,12 @@ public class Celulares {
 	public static double camara5 = 200;
 	
 	
+	public static double porcentaje1 = 7.5;
+	public static double porcentaje2 = 10;
+	public static double porcentaje3 = 12.5;
+	public static double porcentaje4 = 15.0;
+	
+	public static String obsequio1 = "audífonos";
+	public static String obsequio2 = "parlante bluetooth";
+	public static String obsequio3 = "Power bank";
 }
