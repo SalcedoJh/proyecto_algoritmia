@@ -1,4 +1,6 @@
 import java.awt.EventQueue;
+import javax.swing.JOptionPane;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -136,12 +138,78 @@ public class ModificarCelular extends JFrame implements ActionListener {
 		}
 	}
 	protected void actionPerformedCboModelo(ActionEvent e) {
+		int celularIndex = cboModelo.getSelectedIndex();
+		
+		switch (celularIndex) {
+		case 0 : mostrar(Celulares.precio0, Celulares.almacenamiento0, Celulares.bateria0, Celulares.camara0); break;
+		case 1 : mostrar(Celulares.precio1, Celulares.almacenamiento1, Celulares.bateria1, Celulares.camara1); break;
+		case 2 : mostrar(Celulares.precio2, Celulares.almacenamiento2, Celulares.bateria2, Celulares.camara2); break;
+		case 3 : mostrar(Celulares.precio3, Celulares.almacenamiento3, Celulares.bateria3, Celulares.camara3); break;
+		case 4 : mostrar(Celulares.precio4, Celulares.almacenamiento4, Celulares.bateria4, Celulares.camara4); break;
+		case 5 : mostrar(Celulares.precio5, Celulares.almacenamiento5, Celulares.bateria5, Celulares.camara5);
+		}
 		
 	}
-	protected void actionPerformedBtnGuardar(ActionEvent e) {
-		guardar(Celulares.precio0);
+	void mostrar(double pre, double almc, double bat, double cam) {
+		txtPrecio.setText(String.valueOf(pre));
+		txtAlmacenamiento.setText(String.valueOf(almc));
+		txtBateria.setText(String.valueOf(bat));
+		txtCamara.setText(String.valueOf(cam));
 	}
-	void guardar(double precio) {
-		precio = Double.parseDouble(txtPrecio.getText());
+	
+	
+	protected void actionPerformedBtnGuardar(ActionEvent e) {
+		int celularIndex = cboModelo.getSelectedIndex();
+		guardar(celularIndex);
+		JOptionPane.showMessageDialog(this,
+	            "se modificó correctamente el modelo \n " + celularIndex,
+	            "Aviso",
+	            JOptionPane.INFORMATION_MESSAGE);
+		
+	}
+	void guardar(int celularIndex) {
+	    double precio = Double.parseDouble(txtPrecio.getText());
+	    double almacenamiento = Double.parseDouble(txtAlmacenamiento.getText());
+	    double bateria = Double.parseDouble(txtBateria.getText());
+	    double camara = Double.parseDouble(txtCamara.getText());
+
+	    switch (celularIndex) {
+	        case 0:
+	            Celulares.precio0 = precio;
+	            Celulares.almacenamiento0 = almacenamiento;
+	            Celulares.bateria0 = bateria;
+	            Celulares.camara0 = camara;
+	            break;
+	        case 1:
+	            Celulares.precio1 = precio;
+	            Celulares.almacenamiento1 = almacenamiento;
+	            Celulares.bateria1 = bateria;
+	            Celulares.camara1 = camara;
+	            break;
+	        case 2:
+	            Celulares.precio2 = precio;
+	            Celulares.almacenamiento2 = almacenamiento;
+	            Celulares.bateria2 = bateria;
+	            Celulares.camara2 = camara;
+	            break;
+	        case 3:
+	            Celulares.precio3 = precio;
+	            Celulares.almacenamiento3 = almacenamiento;
+	            Celulares.bateria3 = bateria;
+	            Celulares.camara3 = camara;
+	            break;
+	        case 4:
+	            Celulares.precio4 = precio;
+	            Celulares.almacenamiento4 = almacenamiento;
+	            Celulares.bateria4 = bateria;
+	            Celulares.camara4 = camara;
+	            break;
+	        case 5:
+	            Celulares.precio5 = precio;
+	            Celulares.almacenamiento5 = almacenamiento;
+	            Celulares.bateria5 = bateria;
+	            Celulares.camara5 = camara;
+	            break;
+	    }
 	}
 }

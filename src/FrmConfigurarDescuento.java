@@ -124,6 +124,7 @@ public class FrmConfigurarDescuento extends JFrame implements ActionListener {
 		btnCancelarDsc.addActionListener(this);
 		btnCancelarDsc.setBounds(315, 77, 89, 23);
 		contentPane.add(btnCancelarDsc);
+	
 		
 		txtDesc1.setText(Celulares.porcentaje1+"");
 		txtDesc2.setText(Celulares.porcentaje2+"");

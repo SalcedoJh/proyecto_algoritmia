@@ -1,4 +1,6 @@
 import java.awt.EventQueue;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,6 +31,10 @@ public class Vender extends JFrame implements ActionListener {
 	private JTextField txtCantidad;
 	private JButton btnVender;
 	private JButton btnCerrar;
+	//declarando valores iniciales 
+	private int contadorVentas = 0;
+	private double importeTotalAcumulado = 0.0;
+	private double cuotaDiaria = 5000.0;
 
 	/**
 	 * Launch the application.
@@ -173,5 +179,26 @@ public class Vender extends JFrame implements ActionListener {
 		txtS.append(String.format("\n%-20s : %.2f","Importe Descuento", importDesc));
 		txtS.append(String.format("\n%-20s : %.2f","Importe a Pagar", importPagar));
 		txtS.append(String.format("\n%-20s : %s","Obsequio", obsequios));
+		
+		contadorVentas ++;
+		importeTotalAcumulado +=importPagar;
+		if (contadorVentas %5==0) {
+			double porcentajeCuota = (importeTotalAcumulado/cuotaDiaria)*100;
+			String mensaje = String.format(
+		            "Venta Nro. %d\n" +
+		            "Importe total general acumulado : S/. %.2f\n" +
+		            "Porcentaje de la cuota diaria : %.2f%%",
+		            contadorVentas, importeTotalAcumulado, porcentajeCuota
+		            );
+			JOptionPane.showMessageDialog(this,
+			mensaje ,
+			"Avance de ventas",
+            JOptionPane.INFORMATION_MESSAGE);
+		}
+		borrar();
 	}
+	void borrar() {
+		txtCantidad.setText("");
+	}
+	
 }
