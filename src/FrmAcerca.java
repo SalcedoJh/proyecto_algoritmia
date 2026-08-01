@@ -18,7 +18,6 @@ public class FrmAcerca extends JFrame implements ActionListener {
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
 	private JButton btnCerrarAcer;
 
 	/**
@@ -68,11 +67,6 @@ public class FrmAcerca extends JFrame implements ActionListener {
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.ITALIC, 16));
 		lblNewLabel_3.setBounds(80, 127, 299, 14);
 		contentPane.add(lblNewLabel_3);
-		
-		lblNewLabel_4 = new JLabel("RUIZ COTRINA Webb Washington");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.ITALIC, 16));
-		lblNewLabel_4.setBounds(100, 152, 250, 14);
-		contentPane.add(lblNewLabel_4);
 		
 		btnCerrarAcer = new JButton("Cerrar");
 		btnCerrarAcer.addActionListener(this);
