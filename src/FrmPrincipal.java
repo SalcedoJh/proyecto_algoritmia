@@ -21,8 +21,12 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.CardLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
+
 import javax.swing.BoxLayout;
 import javax.swing.UIManager;
+import java.awt.Canvas;
+import javax.swing.JTextArea;
 
 public class FrmPrincipal extends JFrame implements ActionListener {
 
@@ -60,6 +64,7 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 			}
 		});
 	}
+	
 
 	/**
 	 * Create the frame.

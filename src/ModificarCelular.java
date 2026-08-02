@@ -90,21 +90,25 @@ public class ModificarCelular extends JInternalFrame implements ActionListener {
 		contentPane.add(lblCamara);
 		
 		txtPrecio = new JTextField();
+		txtPrecio.setText("330.0");
 		txtPrecio.setColumns(10);
 		txtPrecio.setBounds(162, 37, 155, 20);
 		contentPane.add(txtPrecio);
 		
 		txtAlmacenamiento = new JTextField();
+		txtAlmacenamiento.setText("256");
 		txtAlmacenamiento.setColumns(10);
 		txtAlmacenamiento.setBounds(162, 62, 155, 20);
 		contentPane.add(txtAlmacenamiento);
 		
 		txtBateria = new JTextField();
+		txtBateria.setText("5000");
 		txtBateria.setColumns(10);
 		txtBateria.setBounds(162, 87, 155, 20);
 		contentPane.add(txtBateria);
 		
 		txtCamara = new JTextField();
+		txtCamara.setText("200");
 		txtCamara.setColumns(10);
 		txtCamara.setBounds(162, 112, 155, 20);
 		contentPane.add(txtCamara);

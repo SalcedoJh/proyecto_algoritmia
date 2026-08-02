@@ -49,4 +49,9 @@ public class Celulares {
 	public static String obsequio1 = "audífonos";
 	public static String obsequio2 = "parlante bluetooth";
 	public static String obsequio3 = "Power bank";
+	
+	public static int contadorVentas = 0;
+	public static double importeTotalAcumulado = 0.0;
+	public static double cuotaDiaria = 50000.0;
+	
 }
