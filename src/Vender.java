@@ -14,6 +14,7 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class Vender extends JInternalFrame implements ActionListener {
 
@@ -70,6 +71,7 @@ public class Vender extends JInternalFrame implements ActionListener {
 		contentPane.add(scrollPane);
 		
 		txtS = new JTextArea();
+		txtS.setFont(new Font("Monospaced", Font.PLAIN, 13));
 		scrollPane.setViewportView(txtS);
 		
 		lblModelo = new JLabel("Modelo");

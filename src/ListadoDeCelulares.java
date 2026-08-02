@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import java.awt.Font;
 
 public class ListadoDeCelulares extends JInternalFrame implements ActionListener {
 
@@ -40,14 +41,15 @@ public class ListadoDeCelulares extends JInternalFrame implements ActionListener
 	public ListadoDeCelulares() {
 		setFrameIcon(new ImageIcon(ListadoDeCelulares.class.getResource("/imagen/listar.png")));
 		setTitle("Listado de Celulares");
-		setBounds(100, 100, 477, 370);
+		setBounds(100, 100, 409, 370);
 		getContentPane().setLayout(null);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(46, 26, 346, 224);
+		scrollPane.setBounds(10, 26, 373, 224);
 		getContentPane().add(scrollPane);
 		
 		txtS = new JTextArea();
+		txtS.setFont(new Font("Monospaced", Font.PLAIN, 13));
 		txtS.setEditable(false);
 		scrollPane.setViewportView(txtS);
 		
