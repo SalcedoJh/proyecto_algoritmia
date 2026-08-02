@@ -14,6 +14,15 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import java.awt.Font;
+import javax.swing.JDesktopPane;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.CardLayout;
+import java.awt.GridLayout;
+import javax.swing.BoxLayout;
+import javax.swing.UIManager;
 
 public class FrmPrincipal extends JFrame implements ActionListener {
 
@@ -32,6 +41,7 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 	private JMenuItem mntmDescuentos;
 	private JMenuItem mntmObsequios;
 	private JMenuItem mntmAcerca;
+	private JDesktopPane escritorio;
 	
 
 /**
@@ -42,6 +52,7 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 			public void run() {
 				try {
 					FrmPrincipal frame = new FrmPrincipal();
+					frame.setExtendedState(MAXIMIZED_BOTH);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,12 +67,14 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 	public FrmPrincipal() {
 		setTitle("Tienda 1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 515, 333);
 		
 		menuBar = new JMenuBar();
+		menuBar.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		setJMenuBar(menuBar);
 		
 		mnArchivo = new JMenu("Archivo");
+		mnArchivo.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		menuBar.add(mnArchivo);
 		
 		mntmSalir = new JMenuItem("Salir");
@@ -69,6 +82,7 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 		mnArchivo.add(mntmSalir);
 		
 		mnMantenimiento = new JMenu("Mantenimiento");
+		mnMantenimiento.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		menuBar.add(mnMantenimiento);
 		
 		mntmConsultar = new JMenuItem("Consultar Celular");
@@ -87,6 +101,7 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 		mnMantenimiento.add(mntmListar);
 		
 		mnVentas = new JMenu("Ventas");
+		mnVentas.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		menuBar.add(mnVentas);
 		
 		mntmVender = new JMenuItem("Vender");
@@ -95,6 +110,7 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 		mnVentas.add(mntmVender);
 		
 		mnConfiguracion = new JMenu("Configuracion");
+		mnConfiguracion.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		menuBar.add(mnConfiguracion);
 		
 		mntmDescuentos = new JMenuItem("Configurar descuentos");
@@ -108,12 +124,17 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 		mnConfiguracion.add(mntmObsequios);
 		
 		mnAyuda = new JMenu("Ayuda");
+		mnAyuda.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		menuBar.add(mnAyuda);
 		
 		mntmAcerca = new JMenuItem("Acerca de Tienda");
 		mntmAcerca.addActionListener(this);
 		mnAyuda.add(mntmAcerca);
-		getContentPane().setLayout(null);
+		getContentPane().setLayout(new CardLayout(0, 0));
+		
+		escritorio = new JDesktopPane();
+		escritorio.setBackground(UIManager.getColor("Button.light"));
+		getContentPane().add(escritorio, "name_240227535591700");
 
 	}
 	public void actionPerformed(ActionEvent e) {
@@ -144,37 +165,65 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedMntmConsultar(ActionEvent e) {
 		ConsultarCelular mod= new ConsultarCelular();
-		mod.setLocationRelativeTo(this);
+		Dimension desktopSize = escritorio.getSize();
+		Dimension FrameSize = mod.getSize();
+		mod.setLocation((desktopSize.width-FrameSize.width)/2,(desktopSize.height-FrameSize.height)/2);
+		escritorio.add(mod);
+		//mod.setLocationRelativeTo(this);
 		mod.setVisible(true);
 	}
 	protected void actionPerformedMntmModificar(ActionEvent e) {
 		ModificarCelular mod= new ModificarCelular();
-		mod.setLocationRelativeTo(this);
+		Dimension desktopSize = escritorio.getSize();
+		Dimension FrameSize = mod.getSize();
+		mod.setLocation((desktopSize.width-FrameSize.width)/2,(desktopSize.height-FrameSize.height)/2);
+		escritorio.add(mod);
+		//mod.setLocationRelativeTo(this);
 		mod.setVisible(true);
 	}
 	protected void actionPerformedMntmListar(ActionEvent e) {
 		ListadoDeCelulares mod= new ListadoDeCelulares();
-		mod.setLocationRelativeTo(this);
+		Dimension desktopSize = escritorio.getSize();
+		Dimension FrameSize = mod.getSize();
+		mod.setLocation((desktopSize.width-FrameSize.width)/2,(desktopSize.height-FrameSize.height)/2);
+		escritorio.add(mod);
+		//mod.setLocationRelativeTo(this);
 		mod.setVisible(true);
 	}
 	protected void actionPerformedMntmVender(ActionEvent e) {
 		Vender mod= new Vender();
-		mod.setLocationRelativeTo(this);
+		Dimension desktopSize = escritorio.getSize();
+		Dimension FrameSize = mod.getSize();
+		mod.setLocation((desktopSize.width-FrameSize.width)/2,(desktopSize.height-FrameSize.height)/2);
+		escritorio.add(mod);
+		//mod.setLocationRelativeTo(this);
 		mod.setVisible(true);
 	}
 	protected void actionPerformedMntmDescuentos(ActionEvent e) {
-		FrmConfigurarDescuento mod= new FrmConfigurarDescuento();
-		mod.setLocationRelativeTo(this);
+		ConfigurarDescuento mod= new ConfigurarDescuento();
+		Dimension desktopSize = escritorio.getSize();
+		Dimension FrameSize = mod.getSize();
+		mod.setLocation((desktopSize.width-FrameSize.width)/2,(desktopSize.height-FrameSize.height)/2);
+		escritorio.add(mod);
+		//mod.setLocationRelativeTo(this);
 		mod.setVisible(true);
 	}
 	protected void actionPerformedMntmObsequios(ActionEvent e) {
-		FrmConfigurarObsequios mod= new FrmConfigurarObsequios();
-		mod.setLocationRelativeTo(this);
+		ConfigurarObsequios mod= new ConfigurarObsequios();
+		Dimension desktopSize = escritorio.getSize();
+		Dimension FrameSize = mod.getSize();
+		mod.setLocation((desktopSize.width-FrameSize.width)/2,(desktopSize.height-FrameSize.height)/2);
+		escritorio.add(mod);
+		//mod.setLocationRelativeTo(this);
 		mod.setVisible(true);
 	}
 	protected void actionPerformedMntmAcerca(ActionEvent e) {
-		FrmAcerca mod= new FrmAcerca();
-		mod.setLocationRelativeTo(this);
+		Acerca mod= new Acerca();
+		Dimension desktopSize = escritorio.getSize();
+		Dimension FrameSize = mod.getSize();
+		mod.setLocation((desktopSize.width-FrameSize.width)/2,(desktopSize.height-FrameSize.height)/2);
+		escritorio.add(mod);
+		//mod.setLocationRelativeTo(this);
 		mod.setVisible(true);
 	}
 	protected void actionPerformedMntmSalir(ActionEvent e) {
