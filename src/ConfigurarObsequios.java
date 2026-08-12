@@ -52,7 +52,7 @@ public class ConfigurarObsequios extends JInternalFrame implements ActionListene
 		contentPane = new JPanel();
 		contentPane.setLayout(null);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setBounds(0, 0, 405, 160);
+		contentPane.setBounds(0, 0, 434, 160);
 		getContentPane().add(contentPane);
 		
 		lbl1unidad = new JLabel("1 unidad");
@@ -63,13 +63,13 @@ public class ConfigurarObsequios extends JInternalFrame implements ActionListene
 		txt1unidad = new JTextField();
 		txt1unidad.setText("audífonos");
 		txt1unidad.setColumns(10);
-		txt1unidad.setBounds(155, 31, 115, 20);
+		txt1unidad.setBounds(155, 31, 138, 20);
 		contentPane.add(txt1unidad);
 		
 		txt2a5unidades = new JTextField();
 		txt2a5unidades.setText("parlante bluetooth");
 		txt2a5unidades.setColumns(10);
-		txt2a5unidades.setBounds(155, 56, 115, 20);
+		txt2a5unidades.setBounds(155, 56, 138, 20);
 		contentPane.add(txt2a5unidades);
 		
 		lbl2a5unidades = new JLabel("2 a 5 unidades");
@@ -85,7 +85,7 @@ public class ConfigurarObsequios extends JInternalFrame implements ActionListene
 		txt6masunidades = new JTextField();
 		txt6masunidades.setText("Power bank");
 		txt6masunidades.setColumns(10);
-		txt6masunidades.setBounds(155, 81, 115, 20);
+		txt6masunidades.setBounds(155, 81, 138, 20);
 		contentPane.add(txt6masunidades);
 		
 		btnAceptarObs = new JButton("Aceptar");

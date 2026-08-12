@@ -72,7 +72,7 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 	public FrmPrincipal() {
 		setTitle("Tienda 1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 515, 333);
+		setBounds(100, 100, 660, 526);
 		
 		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Segoe UI", Font.PLAIN, 16));

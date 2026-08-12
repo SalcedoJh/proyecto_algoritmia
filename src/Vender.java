@@ -72,33 +72,33 @@ public class Vender extends JInternalFrame implements ActionListener {
 		scrollPane.setViewportView(txtS);
 		
 		lblModelo = new JLabel("Modelo");
-		lblModelo.setBounds(10, 11, 46, 14);
+		lblModelo.setBounds(10, 11, 78, 14);
 		contentPane.add(lblModelo);
 		
-		lblPrecio = new JLabel("Precio ($)");
-		lblPrecio.setBounds(10, 36, 46, 14);
+		lblPrecio = new JLabel("Precio (s/)");
+		lblPrecio.setBounds(10, 36, 78, 14);
 		contentPane.add(lblPrecio);
 		
 		lblCantidad = new JLabel("Cantidad");
-		lblCantidad.setBounds(10, 61, 46, 14);
+		lblCantidad.setBounds(10, 61, 78, 14);
 		contentPane.add(lblCantidad);
 		
 		cboModelo = new JComboBox();
 		cboModelo.addActionListener(this);
 		cboModelo.setModel(new DefaultComboBoxModel(new String[] {"Xiaomi Redmi Note 15 Pro 5G", "Samsung Galaxy A56 5G", "POCO X8 Pro", "Google Pixel 10a", "Honor Magic7 Lite", "Vivo V70 FE"}));
-		cboModelo.setBounds(98, 7, 154, 22);
+		cboModelo.setBounds(98, 7, 197, 22);
 		contentPane.add(cboModelo);
 		
 		txtPrecio = new JTextField();
 		txtPrecio.setText("330.0");
 		txtPrecio.setEditable(false);
 		txtPrecio.setColumns(10);
-		txtPrecio.setBounds(98, 33, 154, 22);
+		txtPrecio.setBounds(98, 33, 197, 22);
 		contentPane.add(txtPrecio);
 		
 		txtCantidad = new JTextField();
 		txtCantidad.setColumns(10);
-		txtCantidad.setBounds(98, 58, 154, 22);
+		txtCantidad.setBounds(98, 58, 197, 22);
 		contentPane.add(txtCantidad);
 		
 		btnVender = new JButton("Vender");

@@ -54,13 +54,13 @@ public class ModificarCelular extends JInternalFrame implements ActionListener {
 	public ModificarCelular() {
 		setFrameIcon(new ImageIcon(ModificarCelular.class.getResource("/imagen/modificar.png")));
 		setTitle("Modificar Celular");
-		setBounds(100, 100, 450, 201);
+		setBounds(100, 100, 519, 201);
 		getContentPane().setLayout(null);
 		
 		contentPane = new JPanel();
 		contentPane.setLayout(null);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setBounds(0, 0, 434, 144);
+		contentPane.setBounds(0, 0, 503, 144);
 		getContentPane().add(contentPane);
 		
 		lblModelo = new JLabel("Modelo");
@@ -68,23 +68,23 @@ public class ModificarCelular extends JInternalFrame implements ActionListener {
 		lblModelo.setBounds(10, 13, 142, 14);
 		contentPane.add(lblModelo);
 		
-		lblPrecio = new JLabel("Precio");
+		lblPrecio = new JLabel("Precio (s/)");
 		lblPrecio.setToolTipText("");
 		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblPrecio.setBounds(10, 38, 142, 14);
 		contentPane.add(lblPrecio);
 		
-		lblAlmacenamiento = new JLabel("Almacenamiento");
+		lblAlmacenamiento = new JLabel("Almacenamiento (GB)");
 		lblAlmacenamiento.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblAlmacenamiento.setBounds(10, 63, 142, 14);
+		lblAlmacenamiento.setBounds(10, 63, 155, 14);
 		contentPane.add(lblAlmacenamiento);
 		
-		lblBateria = new JLabel("Batería");
+		lblBateria = new JLabel("Batería (mAh)");
 		lblBateria.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblBateria.setBounds(10, 88, 142, 14);
 		contentPane.add(lblBateria);
 		
-		lblCamara = new JLabel("Cámara");
+		lblCamara = new JLabel("Cámara (MP)");
 		lblCamara.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblCamara.setBounds(10, 113, 142, 14);
 		contentPane.add(lblCamara);
@@ -92,45 +92,47 @@ public class ModificarCelular extends JInternalFrame implements ActionListener {
 		txtPrecio = new JTextField();
 		txtPrecio.setText("330.0");
 		txtPrecio.setColumns(10);
-		txtPrecio.setBounds(162, 37, 155, 20);
+		txtPrecio.setBounds(186, 37, 201, 20);
 		contentPane.add(txtPrecio);
 		
 		txtAlmacenamiento = new JTextField();
 		txtAlmacenamiento.setText("256");
 		txtAlmacenamiento.setColumns(10);
-		txtAlmacenamiento.setBounds(162, 62, 155, 20);
+		txtAlmacenamiento.setBounds(186, 62, 201, 20);
 		contentPane.add(txtAlmacenamiento);
 		
 		txtBateria = new JTextField();
 		txtBateria.setText("5000");
 		txtBateria.setColumns(10);
-		txtBateria.setBounds(162, 87, 155, 20);
+		txtBateria.setBounds(186, 87, 201, 20);
 		contentPane.add(txtBateria);
 		
 		txtCamara = new JTextField();
 		txtCamara.setText("200");
 		txtCamara.setColumns(10);
-		txtCamara.setBounds(162, 112, 155, 20);
+		txtCamara.setBounds(186, 112, 201, 20);
 		contentPane.add(txtCamara);
-		
-		btnCerrar = new JButton("Cerrar");
-		btnCerrar.addActionListener(e -> dispose());
-		btnCerrar.setBounds(335, 11, 89, 23);
-		contentPane.add(btnCerrar);
 		
 		cboModelo = new JComboBox();
 		cboModelo.addActionListener(this);
 		cboModelo.setModel(new DefaultComboBoxModel(new String[] {"Xiaomi Redmi Note 15 Pro 5G", "Samsung Galaxy A56 5G", "POCO X8 Pro", "Google Pixel 10a", "Honor Magic7 Lite", "Vivo V70 FE"}));
-		cboModelo.setBounds(162, 11, 155, 22);
+		cboModelo.setBounds(186, 11, 201, 22);
 		contentPane.add(cboModelo);
 		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setBounds(404, 13, 89, 23);
+		contentPane.add(btnCerrar);
+		
 		btnGuardar = new JButton("Guardar");
-		btnGuardar.addActionListener(this);
-		btnGuardar.setBounds(335, 38, 89, 23);
+		btnGuardar.setBounds(404, 40, 89, 23);
 		contentPane.add(btnGuardar);
+		btnGuardar.addActionListener(this);
+		btnCerrar.addActionListener(e -> dispose());
+		
+		mostrar(Celulares.precio0, Celulares.almacenamiento0, Celulares.bateria0, Celulares.camara0);
 
 	}
-
+	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnGuardar) {
 			actionPerformedBtnGuardar(e);

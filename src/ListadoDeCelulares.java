@@ -87,10 +87,10 @@ public class ListadoDeCelulares extends JInternalFrame implements ActionListener
 		}
 	
 	void mostrarCelular(String mod, double pre, double almc, double bat, double cam) {
-		txtS.append(String.format("\n%-18s : %s\n", "Modelo", mod));
-		txtS.append(String.format("%-18s : %.2f\n", "Precio $", pre));
-		txtS.append(String.format("%-18s : %.0f\n", "Almacenamiento MB", almc));
-		txtS.append(String.format("%-18s : %.0f\n", "Bateria mAh", bat));
-		txtS.append(String.format("%-18s : %.0f\n", "Camara MP", cam));
+		txtS.append(String.format("\n%-20s : %s\n", "Modelo", mod));
+		txtS.append(String.format("%-20s : %.2f\n", "Precio (s/)", pre));
+		txtS.append(String.format("%-20s : %.0f\n", "Almacenamiento (MB)", almc));
+		txtS.append(String.format("%-20s : %.0f\n", "Bateria (mAh)", bat));
+		txtS.append(String.format("%-20s : %.0f\n", "Camara (MP)", cam));
 	}
 }
