@@ -54,7 +54,7 @@ public class Vender extends JInternalFrame implements ActionListener {
 	public Vender() {
 		setFrameIcon(new ImageIcon(Vender.class.getResource("/imagen/verder.png")));
 		setTitle("Vender");
-		setBounds(100, 100, 549, 324);
+		setBounds(100, 100, 549, 415);
 		getContentPane().setLayout(null);
 		
 		contentPane = new JPanel();
@@ -64,7 +64,7 @@ public class Vender extends JInternalFrame implements ActionListener {
 		getContentPane().add(contentPane);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 104, 506, 146);
+		scrollPane.setBounds(10, 104, 506, 194);
 		contentPane.add(scrollPane);
 		
 		txtS = new JTextArea();
@@ -172,8 +172,11 @@ public class Vender extends JInternalFrame implements ActionListener {
 		else if (cantidad>=2 && cantidad<=5) obsequios = Celulares.obsequio2;
 		else obsequios = Celulares.obsequio3;
 		
+		Celulares.contadorVentas ++;
+		Celulares.importeTotalAcumulado +=importPagar;
 		
-		txtS.setText("BOLETA DE VENTA\n\n");
+		txtS.setText("BOLETA DE VENTA ELECTRONICA\n");
+		txtS.append("N° "+Celulares.contadorVentas +"\n\n");
 		txtS.append(String.format("%-20s : %s","Modelo", modelo));
 		txtS.append(String.format("\n%-20s : %.2f","Precio", precio));
 		txtS.append(String.format("\n%-20s : %d","Cantidad", cantidad));
@@ -182,8 +185,7 @@ public class Vender extends JInternalFrame implements ActionListener {
 		txtS.append(String.format("\n%-20s : %.2f","Importe a Pagar", importPagar));
 		txtS.append(String.format("\n%-20s : %s","Obsequio", obsequios));
 		
-		Celulares.contadorVentas ++;
-		Celulares.importeTotalAcumulado +=importPagar;
+		
 		if (Celulares.contadorVentas %5==0) {
 			double porcentajeCuota = (Celulares.importeTotalAcumulado/Celulares.cuotaDiaria)*100;
 			String mensaje = String.format(

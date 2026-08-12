@@ -41,11 +41,11 @@ public class ListadoDeCelulares extends JInternalFrame implements ActionListener
 	public ListadoDeCelulares() {
 		setFrameIcon(new ImageIcon(ListadoDeCelulares.class.getResource("/imagen/listar.png")));
 		setTitle("Listado de Celulares");
-		setBounds(100, 100, 409, 370);
+		setBounds(100, 100, 478, 490);
 		getContentPane().setLayout(null);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 26, 373, 224);
+		scrollPane.setBounds(10, 26, 437, 389);
 		getContentPane().add(scrollPane);
 		
 		txtS = new JTextArea();
@@ -55,12 +55,12 @@ public class ListadoDeCelulares extends JInternalFrame implements ActionListener
 		
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(65, 278, 89, 23);
+		btnCerrar.setBounds(96, 426, 89, 23);
 		getContentPane().add(btnCerrar);
 		
 		btnListar = new JButton("Listar");
 		btnListar.addActionListener(this);
-		btnListar.setBounds(206, 278, 89, 23);
+		btnListar.setBounds(251, 426, 89, 23);
 		getContentPane().add(btnListar);
 
 	}

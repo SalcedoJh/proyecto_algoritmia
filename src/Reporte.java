@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.ImageIcon;
 
 public class Reporte extends JInternalFrame implements ActionListener {
 
@@ -40,11 +41,12 @@ public class Reporte extends JInternalFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Reporte() {
+		setFrameIcon(new ImageIcon(Reporte.class.getResource("/imagen/reporte.png")));
 		setTitle("Reporte");
-		setBounds(100, 100, 457, 366);
+		setBounds(100, 100, 441, 366);
 		getContentPane().setLayout(null);
 		
-		lblNewLabel = new JLabel("RESPORTE");
+		lblNewLabel = new JLabel("REPORTE");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(190, 11, 84, 21);
 		getContentPane().add(lblNewLabel);
@@ -54,11 +56,12 @@ public class Reporte extends JInternalFrame implements ActionListener {
 		getContentPane().add(scrollPane);
 		
 		txtReporte = new JTextArea();
+		txtReporte.setEditable(false);
 		txtReporte.setFont(new Font("Monospaced", Font.PLAIN, 13));
 		scrollPane.setViewportView(txtReporte);
 		
 		btnCerrar = new JButton("Cerrar");
-		btnCerrar.setBounds(205, 288, 89, 23);
+		btnCerrar.setBounds(216, 288, 89, 23);
 		btnCerrar.addActionListener(e -> dispose());
 		getContentPane().add(btnCerrar);
 		
@@ -80,12 +83,12 @@ public class Reporte extends JInternalFrame implements ActionListener {
 	}
 	void listar() {
 		txtReporte.setText("REPORTE DE VENTA\n\n");
-		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo0, Celulares.cant0));
-		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo1, Celulares.cant1));
-		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo2, Celulares.cant2));
-		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo3, Celulares.cant3));
-		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo4, Celulares.cant4));
-		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo5, Celulares.cant5));
+		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo0, Celulares.cant0)+" und");
+		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo1, Celulares.cant1)+" und");
+		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo2, Celulares.cant2)+" und");
+		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo3, Celulares.cant3)+" und");
+		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo4, Celulares.cant4)+" und");
+		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo5, Celulares.cant5)+" und");
 
 	}
 }

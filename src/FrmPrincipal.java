@@ -28,6 +28,8 @@ import javax.swing.UIManager;
 import java.awt.Canvas;
 import javax.swing.JTextArea;
 
+
+
 public class FrmPrincipal extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
@@ -47,6 +49,7 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 	private JMenuItem mntmAcerca;
 	private JDesktopPane escritorio;
 	private JMenuItem mntmReporte;
+	private JLabel icono;
 	
 
 /**
@@ -116,6 +119,7 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 		mnVentas.add(mntmVender);
 		
 		mntmReporte = new JMenuItem("Reporte");
+		mntmReporte.setIcon(new ImageIcon(FrmPrincipal.class.getResource("/imagen/reporte.png")));
 		mntmReporte.addActionListener(this);
 		mnVentas.add(mntmReporte);
 		
@@ -145,6 +149,16 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 		escritorio = new JDesktopPane();
 		escritorio.setBackground(UIManager.getColor("Button.light"));
 		getContentPane().add(escritorio, "name_240227535591700");
+		
+		icono = new JLabel("");
+		
+		Image img = new ImageIcon(
+			    this.getClass().getResource("/imagen/logo.jpeg")
+			).getImage();
+
+		icono.setIcon(new ImageIcon(img));
+		icono.setBounds(86, 0, 481, 448);
+		escritorio.add(icono);
 
 	}
 	public void actionPerformed(ActionEvent e) {
