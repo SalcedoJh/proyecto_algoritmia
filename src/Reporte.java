@@ -8,6 +8,8 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Reporte extends JInternalFrame implements ActionListener {
 
@@ -39,7 +41,7 @@ public class Reporte extends JInternalFrame implements ActionListener {
 	 */
 	public Reporte() {
 		setTitle("Reporte");
-		setBounds(100, 100, 545, 366);
+		setBounds(100, 100, 457, 366);
 		getContentPane().setLayout(null);
 		
 		lblNewLabel = new JLabel("RESPORTE");
@@ -48,10 +50,11 @@ public class Reporte extends JInternalFrame implements ActionListener {
 		getContentPane().add(lblNewLabel);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(33, 49, 467, 228);
+		scrollPane.setBounds(33, 49, 363, 228);
 		getContentPane().add(scrollPane);
 		
 		txtReporte = new JTextArea();
+		txtReporte.setFont(new Font("Monospaced", Font.PLAIN, 13));
 		scrollPane.setViewportView(txtReporte);
 		
 		btnCerrar = new JButton("Cerrar");
@@ -77,12 +80,12 @@ public class Reporte extends JInternalFrame implements ActionListener {
 	}
 	void listar() {
 		txtReporte.setText("REPORTE DE VENTA\n\n");
-		txtReporte.append(String.format("\n%-20s : %d",Celulares.modelo0, Celulares.cant0));
-		txtReporte.append(String.format("\n%-20s : %d",Celulares.modelo1, Celulares.cant1));
-		txtReporte.append(String.format("\n%-20s : %d",Celulares.modelo2, Celulares.cant2));
-		txtReporte.append(String.format("\n%-20s : %d",Celulares.modelo3, Celulares.cant3));
-		txtReporte.append(String.format("\n%-20s : %d",Celulares.modelo4, Celulares.cant4));
-		txtReporte.append(String.format("\n%-20s : %d",Celulares.modelo5, Celulares.cant5));
-	
+		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo0, Celulares.cant0));
+		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo1, Celulares.cant1));
+		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo2, Celulares.cant2));
+		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo3, Celulares.cant3));
+		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo4, Celulares.cant4));
+		txtReporte.append(String.format("\n%-30s : %d",Celulares.modelo5, Celulares.cant5));
+
 	}
 }
