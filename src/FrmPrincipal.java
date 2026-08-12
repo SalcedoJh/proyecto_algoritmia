@@ -46,6 +46,7 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 	private JMenuItem mntmObsequios;
 	private JMenuItem mntmAcerca;
 	private JDesktopPane escritorio;
+	private JMenuItem mntmReporte;
 	
 
 /**
@@ -114,6 +115,10 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 		mntmVender.addActionListener(this);
 		mnVentas.add(mntmVender);
 		
+		mntmReporte = new JMenuItem("Reporte");
+		mntmReporte.addActionListener(this);
+		mnVentas.add(mntmReporte);
+		
 		mnConfiguracion = new JMenu("Configuracion");
 		mnConfiguracion.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		menuBar.add(mnConfiguracion);
@@ -143,6 +148,9 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == mntmReporte) {
+			actionPerformedMntmReporte(e);
+		}
 		if (e.getSource() == mntmSalir) {
 			actionPerformedMntmSalir(e);
 		}
@@ -233,5 +241,14 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedMntmSalir(ActionEvent e) {
 		System.exit(0);
+	}
+	protected void actionPerformedMntmReporte(ActionEvent e) {
+		Reporte mod= new Reporte();
+		Dimension desktopSize = escritorio.getSize();
+		Dimension FrameSize = mod.getSize();
+		mod.setLocation((desktopSize.width-FrameSize.width)/2,(desktopSize.height-FrameSize.height)/2);
+		escritorio.add(mod);
+		//mod.setLocationRelativeTo(this);
+		mod.setVisible(true);
 	}
 }

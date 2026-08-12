@@ -54,17 +54,17 @@ public class Vender extends JInternalFrame implements ActionListener {
 	public Vender() {
 		setFrameIcon(new ImageIcon(Vender.class.getResource("/imagen/verder.png")));
 		setTitle("Vender");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 549, 324);
 		getContentPane().setLayout(null);
 		
 		contentPane = new JPanel();
 		contentPane.setLayout(null);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setBounds(0, 0, 434, 261);
+		contentPane.setBounds(0, 0, 535, 283);
 		getContentPane().add(contentPane);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 104, 414, 146);
+		scrollPane.setBounds(10, 104, 506, 146);
 		contentPane.add(scrollPane);
 		
 		txtS = new JTextArea();
@@ -103,12 +103,12 @@ public class Vender extends JInternalFrame implements ActionListener {
 		
 		btnVender = new JButton("Vender");
 		btnVender.addActionListener(this);
-		btnVender.setBounds(335, 7, 89, 23);
+		btnVender.setBounds(385, 7, 89, 23);
 		contentPane.add(btnVender);
 		
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(335, 32, 89, 23);
+		btnCerrar.setBounds(385, 32, 89, 23);
 		contentPane.add(btnCerrar);
 		
 		mostrarPrecio(Celulares.precio0);
@@ -148,10 +148,12 @@ public class Vender extends JInternalFrame implements ActionListener {
 		int cantidad;
 		double precio, importDesc, importCompra, importPagar;
 		String modelo, obsequios;
+		int indexModelo = cboModelo.getSelectedIndex();
 		
 		cantidad = Integer.parseInt(txtCantidad.getText());
 		precio = Double.parseDouble(txtPrecio.getText());
 		modelo = cboModelo.getSelectedItem().toString();
+		
 		
 		importCompra = precio * cantidad;
 		
@@ -169,6 +171,7 @@ public class Vender extends JInternalFrame implements ActionListener {
 		if (cantidad == 1) obsequios = Celulares.obsequio1;
 		else if (cantidad>=2 && cantidad<=5) obsequios = Celulares.obsequio2;
 		else obsequios = Celulares.obsequio3;
+		
 		
 		txtS.setText("BOLETA DE VENTA\n\n");
 		txtS.append(String.format("%-20s : %s","Modelo", modelo));
@@ -194,10 +197,22 @@ public class Vender extends JInternalFrame implements ActionListener {
 			"Avance de ventas",
             JOptionPane.INFORMATION_MESSAGE);
 		}
+		
+		contador(indexModelo, cantidad);
 		borrar();
 	}
 	void borrar() {
 		txtCantidad.setText("");
+	}
+	void contador(int cel, int cant) {
+		switch (cel) {
+		case 0: Celulares.cant0 += cant; break;
+		case 1: Celulares.cant1 += cant; break;
+		case 2: Celulares.cant2 += cant; break;
+		case 3: Celulares.cant3 += cant; break;
+		case 4: Celulares.cant4 += cant; break;
+		case 5: Celulares.cant5 += cant;
+		}
 	}
 	
 }
