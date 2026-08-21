@@ -74,7 +74,7 @@ public class ConsultarCelular extends JInternalFrame implements ActionListener {
 		lblPrecio.setBounds(10, 36, 142, 14);
 		contentPane.add(lblPrecio);
 		
-		lblAlmacenamiento = new JLabel("Almacenamiento (MB)");
+		lblAlmacenamiento = new JLabel("Almacenamiento (GB)");
 		lblAlmacenamiento.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAlmacenamiento.setBounds(10, 63, 166, 14);
 		contentPane.add(lblAlmacenamiento);
@@ -128,9 +128,9 @@ public class ConsultarCelular extends JInternalFrame implements ActionListener {
 		cboModelo.setModel(new DefaultComboBoxModel(new String[] {"Xiaomi Redmi Note 15 Pro 5G", "Samsung Galaxy A56 5G", "POCO X8 Pro", "Google Pixel 10a", "Honor Magic7 Lite", "Vivo V70 FE"}));
 		cboModelo.setBounds(186, 11, 201, 22);
 		contentPane.add(cboModelo);
-		
-		mostrar(Celulares.precio0, Celulares.almacenamiento0, Celulares.bateria0, Celulares.camara0);
 
+
+		mostrar(Celulares.precio0, Celulares.almacenamiento0, Celulares.bateria0, Celulares.camara0);
 	}
 	public void actionPerformed(ActionEvent e) {
 		actionPerformedCboModelo(e);
@@ -142,7 +142,7 @@ public class ConsultarCelular extends JInternalFrame implements ActionListener {
 	protected void actionPerformedCboModelo(ActionEvent e) {
 		
 		int celularIndex = cboModelo.getSelectedIndex();
-		
+
 		switch (celularIndex) {
 		case 0 : mostrar(Celulares.precio0, Celulares.almacenamiento0, Celulares.bateria0, Celulares.camara0); break;
 		case 1 : mostrar(Celulares.precio1, Celulares.almacenamiento1, Celulares.bateria1, Celulares.camara1); break;
@@ -152,11 +152,12 @@ public class ConsultarCelular extends JInternalFrame implements ActionListener {
 		case 5 : mostrar(Celulares.precio5, Celulares.almacenamiento5, Celulares.bateria5, Celulares.camara5);
 		}
 	}
-	void mostrar(double pre, double almc, double bat, double cam) {
-		txtPrecio.setText(String.valueOf(pre));
-		txtAlmacenamiento.setText(String.valueOf(almc));
-		txtBateria.setText(String.valueOf(bat));
-		txtCamara.setText(String.valueOf(cam));
+	
+	public void mostrar(double pre, double almc, double bat, double cam) {
+		txtPrecio.setText("" + pre);
+		txtAlmacenamiento.setText("" + almc);
+		txtBateria.setText("" + bat);
+		txtCamara.setText("" + cam);
 	}
 	
 

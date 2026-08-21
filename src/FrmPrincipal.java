@@ -76,7 +76,7 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 	public FrmPrincipal() {
 		setTitle("Tienda 1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 660, 526);
+		setBounds(100, 100, 660, 620);
 		
 		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Segoe UI", Font.PLAIN, 16));
@@ -196,7 +196,6 @@ public class FrmPrincipal extends JFrame implements ActionListener {
 		Dimension FrameSize = mod.getSize();
 		mod.setLocation((desktopSize.width-FrameSize.width)/2,(desktopSize.height-FrameSize.height)/2);
 		escritorio.add(mod);
-		//mod.setLocationRelativeTo(this);
 		mod.setVisible(true);
 	}
 	protected void actionPerformedMntmModificar(ActionEvent e) {

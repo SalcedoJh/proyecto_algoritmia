@@ -54,7 +54,7 @@ public class Vender extends JInternalFrame implements ActionListener {
 	public Vender() {
 		setFrameIcon(new ImageIcon(Vender.class.getResource("/imagen/verder.png")));
 		setTitle("Vender");
-		setBounds(100, 100, 549, 415);
+		setBounds(100, 100, 549, 339);
 		getContentPane().setLayout(null);
 		
 		contentPane = new JPanel();
@@ -153,8 +153,7 @@ public class Vender extends JInternalFrame implements ActionListener {
 		cantidad = Integer.parseInt(txtCantidad.getText());
 		precio = Double.parseDouble(txtPrecio.getText());
 		modelo = cboModelo.getSelectedItem().toString();
-		
-		
+			
 		importCompra = precio * cantidad;
 		
 		if (cantidad>=1 && cantidad<=5)

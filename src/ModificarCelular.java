@@ -155,10 +155,10 @@ public class ModificarCelular extends JInternalFrame implements ActionListener {
 		
 	}
 	void mostrar(double pre, double almc, double bat, double cam) {
-		txtPrecio.setText(String.valueOf(pre));
-		txtAlmacenamiento.setText(String.valueOf(almc));
-		txtBateria.setText(String.valueOf(bat));
-		txtCamara.setText(String.valueOf(cam));
+		txtPrecio.setText("" + pre);
+		txtAlmacenamiento.setText("" + almc);
+		txtBateria.setText("" + bat);
+		txtCamara.setText("" + cam);
 	}
 	
 	
@@ -166,13 +166,14 @@ public class ModificarCelular extends JInternalFrame implements ActionListener {
 		int celularIndex = cboModelo.getSelectedIndex();
 		String celular = cboModelo.getSelectedItem().toString();
 		
-		
-		
 		guardar(celularIndex);
+		
 		JOptionPane.showMessageDialog(this,
 	            "se modificó correctamente el modelo \n " + celular,
 	            "Aviso",
 	            JOptionPane.INFORMATION_MESSAGE);
+		
+		dispose();
 		
 	}
 	void guardar(int celularIndex) {
